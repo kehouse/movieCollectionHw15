@@ -11,10 +11,10 @@ templates.movies = [
 ].join('');
 
 templates.edit = [
-  <input type="text" name="image" value="" placeholder="Image">
-  <input type="text" name="title" value="" placeholder="Title">
-  <input type="text" name="storyline" value="" placeholder="Storyline">
-  <input type="button" name="submit" value="Submit" class="button">
+  '<input type="text" name="image" value="<%= movies.moviePoster %>" placeholder="Image">',
+  '<input type="text" name="title" value="<%= movies.title %>" placeholder="Title">',
+  '<input type="text" name="storyline" value="<%= movies.storyline %>" placeholder="Storyline">',
+  '<input type="button" name="edit" value="edit" class="editButton" placeholder"edit>',
 ].join('');
 
 $(document).ready(function(){
@@ -53,13 +53,42 @@ var page = {
       window.glob = movieCollection;
       page.addAll();
     });
-  },
   $('body').on('click', '.edit', function(event){
     event.preventDefault();
     var tmpl = _.template(templates.edit);
-    
-    $(this).closest(article).append(templates.edit);
+    window.glob = $(this);
+    var title = $(this).closest('article').find('h3').text();
+    var image = $(this).closest('article').find('img').prop('src');
+    var storyline = $(this).closest('article').find('p').text();
+    var tmplObj = {
+      moviePoster: image,
+      title: title,
+      storyline: storyline,
+    }
+    $(this).closest('article').append(tmpl({movies: tmplObj}));
   });
+  $('body').on('click', '.editButton', function(event){
+    event.preventDefault();
+    var editMovie = {
+      moviePoster: $('input[name="image"]').val(),
+      title: $('input[placeholder="Title"]').val(),
+      storyline: $('input[placeholder="Storyline"]').val(),
+    };
+    $('input[name="image"]').val(''),
+    $('input[placeholder="Title"]').val(''),
+    $('input[placeholder="Storyline"]').val(''),
+    console.log(editMovie);
+    var myeditMovie = new MovieModel(editMovie);
+    movieCollection.add(myeditMovie);
+    console.log(movieCollection);
+    window.glob = movieCollection;
+    var movieId = $(this).closest('article').data('id');
+    movieCollection.remove(movieId);
+    page.addAll();
+  });
+  },
+
+
     addOne: function (el) {
       el.attributes.id = el.cid;
       var markup = page.movieTmpl({movies: el.toJSON()});
