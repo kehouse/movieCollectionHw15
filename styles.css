@@ -1,3 +1,60 @@
-.inactive {
-  display: none;
+body {
+  width: 75%;
+  margin: 0 auto;
+  /*background-color: black;*/
+}
+
+.container {
+  margin-top: 3%;
+}
+
+article {
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  /*background-color: white;*/
+}
+
+img {
+  width: 75%;
+  margin-left: 15%;
+}
+
+h3 {
+  color: teal;
+  margin-left: 33%;
+}
+
+p {
+  color: teal;
+}
+
+form {
+  width: 100%;
+  background-color: beige;
+  height: 200px;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+input {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2.4%;
+  margin-left: 10%;
+  color: teal;
+}
+
+.button {
+  width: 25%;
+  background-color: teal;
+  color: beige;
+}
+
+button {
+  width: 25%;
+  background-color: teal;
+  color: beige;
+  margin-left: 18%;
 }
