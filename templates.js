@@ -27,7 +27,7 @@ templates.edit = [
   "<div class='editSection'>",
   "<input type='text' name='image' class='image' value='<%= moviePoster %>' placeholder='Image'>",
   "<input type='text' name='title' class='title' value='<%= title %>' placeholder='Title'>",
-  "<textarea type='text' name='storyline' class='storyline' value='<%= storyline %>' placeholder='Storyline'></textarea>",
+  "<input type='text' name='storyline' class='storyline' value='<%= storyline %>' placeholder='Storyline'>",
   "<input type='button' name='edit' value='edit' class='editButton' placeholder='edit'>",
   "</div>"
 ].join('');
