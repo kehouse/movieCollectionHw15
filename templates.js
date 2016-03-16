@@ -15,10 +15,10 @@ templates.movies = [
 ].join('');
 
 templates.create = [
-  '<form class="createNewMovie" action="index.html" method="post">',
+  '<form class="createNewMovie">',
   '<input type="text" name="image" value="" placeholder="Image">',
   '<input type="text" name="title" value="" placeholder="Title">',
-  '<input type="text" name="storyline" value="" placeholder="Storyline">',
+  '<textarea type="text" name="storyline" value="" placeholder="Storyline"></textarea>',
   "<button class='submit'>Submit</button>",
   '</form>'
 ].join('');
@@ -27,7 +27,7 @@ templates.edit = [
   "<div class='editSection'>",
   "<input type='text' name='image' class='image' value='<%= moviePoster %>' placeholder='Image'>",
   "<input type='text' name='title' class='title' value='<%= title %>' placeholder='Title'>",
-  "<input type='text' name='storyline' class='storyline' value='<%= storyline %>' placeholder='Storyline'>",
+  "<textarea type='text' name='storyline' class='storyline' value='<%= storyline %>' placeholder='Storyline'></textarea>",
   "<input type='button' name='edit' value='edit' class='editButton' placeholder='edit'>",
   "</div>"
 ].join('');

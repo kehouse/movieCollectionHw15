@@ -16,6 +16,8 @@ var createMovieView = Backbone.View.extend({
   this.$el.find('input').val('');
   this.$el.find('textarea').val('');
   this.collection.add(this.model);
+  console.log(this.collection.models.length);
+  this.model = new MovieModel({});
 },
 initialize: function(){
   if(!this.model){
@@ -24,7 +26,7 @@ initialize: function(){
   this.render();
 },
 render: function(){
-  var mark = this.tempCreate();
+  var mark = this.tempCreate(this.model.toJSON());
   this.$el.html(mark);
   return this;
 },

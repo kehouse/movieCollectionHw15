@@ -46,6 +46,14 @@ input {
   color: teal;
 }
 
+textarea {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2.4%;
+  margin-left: 10%;
+  color: teal;
+}
+
 .button {
   width: 25%;
   background-color: teal;
